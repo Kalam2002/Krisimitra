@@ -42,7 +42,7 @@ export function UserNav() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+        <Button variant="link" className="relative h-8 w-8 rounded-full">
           <Avatar className="h-8 w-8">
             <AvatarImage src={user.photoURL || ''} alt={user.displayName || 'User'} />
             <AvatarFallback>{getInitials(user.displayName)}</AvatarFallback>
@@ -62,9 +62,6 @@ export function UserNav() {
         <DropdownMenuGroup>
           <DropdownMenuItem>
             Profile
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            Billing
           </DropdownMenuItem>
           <DropdownMenuItem>
             Settings

@@ -1,9 +1,9 @@
 'use server';
 
-// Initialize flows
-import { cropAnalysis } from './flows/crop-analysis';
-import { email } from './flows/email';
-import { predictions } from './flows/predictions';
+// This file is responsible for initializing and registering all AI flows.
+// It is imported by the API route to make the flows available.
+// It should not export anything.
 
-// Export flows for the API route
-export { cropAnalysis, email, predictions };
+import './flows/crop-analysis';
+import './flows/email';
+import './flows/predictions';
