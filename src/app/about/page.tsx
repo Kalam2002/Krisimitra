@@ -5,25 +5,19 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const teamMembers = [
   {
-    name: 'Dr. Rajesh Kumar',
-    role: 'Agricultural Scientist',
-    bio: '15+ years of experience in crop disease research',
-    avatar: 'https://picsum.photos/seed/rajesh/200/200',
-    initials: 'RK',
+    name: 'Piyush Das',
+    avatar: 'https://i.ibb.co/b5h5Dpj3/piyush.jpg',
+    initials: 'PD',
   },
   {
-    name: 'Priya Sharma',
-    role: 'AI Specialist',
-    bio: 'Expert in machine learning and computer vision',
-    avatar: 'https://picsum.photos/seed/priya/200/200',
-    initials: 'PS',
+    name: 'Anusha Sekhar',
+    avatar: 'https://i.ibb.co/chg5KDBP/Screenshot-2025-09-26-001614.png',
+    initials: 'AS',
   },
   {
-    name: 'Amit Patel',
-    role: 'Agricultural Extension Officer',
-    bio: 'Bridging technology and farming communities',
-    avatar: 'https://picsum.photos/seed/amit/200/200',
-    initials: 'AP',
+    name: 'Abdul Kalam',
+    avatar: 'https://i.ibb.co/xQCFwVz/Screenshot-2025-09-16-0108442.png',
+    initials: 'AK',
   },
 ];
 
