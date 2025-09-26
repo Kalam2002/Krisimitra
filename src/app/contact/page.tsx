@@ -97,9 +97,9 @@ export default function ContactPage() {
               <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg">
                 <h3 className="font-semibold mb-2">Office Location</h3>
                 <address className="text-muted-foreground text-sm not-italic">
-                  123 Agriculture St
+                  Salt Lake
                   <br />
-                  Farm City, FC 12345
+                  Sector V, 700091
                   <br />
                   India
                 </address>
