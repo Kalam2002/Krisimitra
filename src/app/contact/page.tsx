@@ -86,14 +86,14 @@ export default function ContactPage() {
                   <p className="text-muted-foreground text-sm">We&apos;ll respond within 24 hours</p>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
+              {/*<div className="flex items-start gap-4">
                 <MessageSquare className="h-6 w-6 text-primary mt-1" />
-                {/* <div>
+                 <div>
                   <h3 className="font-semibold">Live Chat</h3>
                   <p className="text-muted-foreground text-sm">Available 9 AM - 6 PM IST</p>
                   <p className="text-muted-foreground text-sm">Instant support for quick queries</p>
-                </div> */}
-              </div>
+                </div>
+              </div> */}
               <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg">
                 <h3 className="font-semibold mb-2">Office Location</h3>
                 <address className="text-muted-foreground text-sm not-italic">
