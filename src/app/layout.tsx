@@ -32,7 +32,7 @@ export default function RootLayout({
                 <Leaf className="h-6 w-6 text-white" />
                 <span className="ml-2 text-xl font-bold">KrishiMitra</span>
               </Link>
-              <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+              <nav className="flex items-center space-x-6 text-sm font-medium">
                 <Link href="/" className="transition-colors hover:text-white/80 text-white/90">Home</Link>
                 <Link href="/predict" className="transition-colors hover:text-white/80 text-white/90">Predict</Link>
                 <Link href="/about" className="transition-colors hover:text-white/80 text-white/90">About Us</Link>
