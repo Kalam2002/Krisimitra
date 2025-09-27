@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 import { FirebaseClientProvider } from '@/firebase/client-provider';
 import { UserNav } from '@/components/user-nav';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 
 export const metadata: Metadata = {
   title: 'KrishiMitra',
@@ -58,6 +58,9 @@ export default function RootLayout({
                     </Button>
                   </SheetTrigger>
                   <SheetContent side="left">
+                    <SheetHeader>
+                      <SheetTitle className="sr-only">KrishiMitra Menu</SheetTitle>
+                    </SheetHeader>
                     <nav className="grid gap-6 text-lg font-medium mt-10">
                       {navLinks.map(link => (
                         <Link key={link.href} href={link.href} className="text-muted-foreground hover:text-foreground">{link.label}</Link>

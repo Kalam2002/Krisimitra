@@ -5,17 +5,15 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { GoogleAuthProvider, signInWithPopup, updateProfile, onAuthStateChanged, User } from 'firebase/auth';
-import { useAuth, useFirestore, useUser } from '@/firebase';
+import { GoogleAuthProvider, signInWithPopup, updateProfile, onAuthStateChanged, User, sendEmailVerification, signOut } from 'firebase/auth';
+import { useAuth, useUser } from '@/firebase';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 import { Chrome, Leaf, Loader2 } from 'lucide-react';
-import { doc } from 'firebase/firestore';
 import { initiateEmailSignUp } from '@/firebase/non-blocking-login';
-import { setDocumentNonBlocking } from '@/firebase/non-blocking-updates';
 import { useRouter } from 'next/navigation';
 
 
@@ -29,7 +27,6 @@ type FormData = z.infer<typeof signupSchema>;
 
 export default function SignupPage() {
   const auth = useAuth();
-  const firestore = useFirestore();
   const { user, isUserLoading } = useUser();
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
@@ -61,24 +58,23 @@ export default function SignupPage() {
           try {
             await updateProfile(user, { displayName: name });
 
-            const userRef = doc(firestore, 'users', user.uid);
-            setDocumentNonBlocking(userRef, {
-              uid: user.uid,
-              displayName: name,
-              email: user.email,
-              createdAt: new Date().toISOString(),
-            }, { merge: true });
+            await sendEmailVerification(user);
+
+            await signOut(auth); // Sign the user out immediately.
 
             toast({
-              title: 'Account Created',
-              description: "You've been successfully signed up.",
+              title: 'Verification Email Sent',
+              description: "Please check your inbox to verify your email address before logging in.",
+              duration: 5000,
             });
+            
+            router.push('/login');
 
           } catch (error: any) {
              toast({
               variant: 'destructive',
-              title: 'Update Profile Failed',
-              description: error.message || 'Could not update your profile information.',
+              title: 'Sign-up Failed',
+              description: error.message || 'Could not complete the sign-up process.',
             });
           }
         }
@@ -87,7 +83,7 @@ export default function SignupPage() {
 
     // Cleanup the listener when the component unmounts
     return () => unsubscribe();
-  }, [auth, firestore, toast, getValues]);
+  }, [auth, toast, getValues, router]);
 
 
   const onSubmit = (data: FormData) => {
@@ -105,19 +101,8 @@ export default function SignupPage() {
     startTransition(async () => {
       try {
         const provider = new GoogleAuthProvider();
-        const userCredential = await signInWithPopup(auth, provider);
-        const user = userCredential.user;
-
-        const userRef = doc(firestore, 'users', user.uid);
-        // For Google sign-in, we create the user document immediately
-        setDocumentNonBlocking(userRef, {
-          uid: user.uid,
-          displayName: user.displayName,
-          email: user.email,
-          createdAt: new Date().toISOString(),
-          photoURL: user.photoURL,
-        }, { merge: true });
-
+        await signInWithPopup(auth, provider);
+        
         toast({
           title: 'Sign-up Successful',
           description: "You've been successfully signed up with Google.",
