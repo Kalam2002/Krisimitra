@@ -39,7 +39,7 @@ yarn-error.log*
 
 .genkit/*
 .env*
-
+.env
 # firebase
 firebase-debug.log
 firestore-debug.log
