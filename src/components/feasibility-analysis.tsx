@@ -94,7 +94,7 @@ export default function FeasibilityAnalysis() {
                 <FormItem>
                   <FormLabel>Crop Type</FormLabel>
                   <FormControl>
-                    <Input placeholder="e.g., Avocado" {...field} />
+                    <Input placeholder="e.g., Tomato" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -107,7 +107,7 @@ export default function FeasibilityAnalysis() {
                 <FormItem>
                   <FormLabel>Region</FormLabel>
                   <FormControl>
-                    <Input placeholder="e.g., Southern California" {...field} />
+                    <Input placeholder="e.g., Bankura" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

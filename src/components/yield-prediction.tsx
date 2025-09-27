@@ -78,7 +78,7 @@ export default function YieldPrediction() {
                 <FormItem>
                   <FormLabel>Crop Type</FormLabel>
                   <FormControl>
-                    <Input placeholder="e.g., Corn, Wheat, Soy" {...field} />
+                    <Input placeholder="e.g., Corn, Wheat, Rice" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -91,7 +91,7 @@ export default function YieldPrediction() {
                 <FormItem>
                   <FormLabel>Region</FormLabel>
                   <FormControl>
-                    <Input placeholder="e.g., Iowa, USA" {...field} />
+                    <Input placeholder="e.g., Birbhum, Kolhapur, Mirzapur" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
