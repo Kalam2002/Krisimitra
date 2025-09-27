@@ -27,7 +27,7 @@ export function UserNav() {
   if (!user) {
     return (
       <Link href="/login">
-        <Button variant="outline" className="bg-white text-primary hover:bg-gray-100">Login</Button>
+        <Button variant="outline" className="bg-white text-primary hover:bg-gray-100">Sign-In / Sign-Up</Button>
       </Link>
     );
   }

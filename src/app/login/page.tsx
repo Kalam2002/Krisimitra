@@ -114,11 +114,11 @@ export default function LoginPage() {
             backgroundImage: 'url(https://images.unsplash.com/photo-1542282246-137563567812?q=80&w=2070&auto=format&fit=crop)',
           }}
         />
-        <div className="relative z-20 flex items-center text-lg font-medium">
+        <div className="relative z-80 flex items-center text-lg font-medium">
           <Leaf className="mr-2 h-6 w-6" />
           KrishiMitra
         </div>
-        <div className="relative z-20 mt-auto">
+        <div className="relative z-80 mt-auto">
           <blockquote className="space-y-2">
             <p className="text-lg">
               &ldquo;This tool has been a game-changer for our farm. The predictions are incredibly accurate and have saved us from potential disasters.&rdquo;
